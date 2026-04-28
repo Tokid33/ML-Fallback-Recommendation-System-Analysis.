@@ -1,0 +1,32 @@
+{
+  "mode": "fallback",
+  "reason": "ml_timeout",
+  "generated_at": "2026-04-28T12:00:00Z",
+  "request_context": {
+    "destination": "Rome",
+    "trip_type": "family",
+    "date_from": "2026-05-10",
+    "date_to": "2026-05-15"
+  },
+  "recommendations": [
+    {
+      "id": "activity_123",
+      "type": "activity",
+      "title": "Обзорная прогулка по историческому центру",
+      "score": 0.82,
+      "explanation": "Популярно у путешественников в этом городе и подходит вашему расписанию"
+    },
+    {
+      "id": "hotel_456",
+      "type": "hotel",
+      "title": "Отель рядом с центром и семейными маршрутами",
+      "score": 0.77,
+      "explanation": "Соответствует вашему бюджету, формату поездки и выбранным датам"
+    }
+  ],
+  "debug": {
+    "ml_wait_ms": 3000,
+    "fallback_generation_ms": 180,
+    "confidence_threshold": 0.6
+  }
+}

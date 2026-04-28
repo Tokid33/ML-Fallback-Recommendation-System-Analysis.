@@ -1,0 +1,11 @@
+stateDiagram-v2
+    [*] --> RequestReceived
+    RequestReceived --> MLMode: ML ответил < 3 сек и confidence высокий
+    RequestReceived --> FallbackMode: ML недоступен или timeout
+    RequestReceived --> HybridMode: часть ML-ответа полезна, часть слабая
+
+    MLMode --> ResponseReturned
+    FallbackMode --> ResponseReturned
+    HybridMode --> ResponseReturned
+
+    ResponseReturned --> [*]

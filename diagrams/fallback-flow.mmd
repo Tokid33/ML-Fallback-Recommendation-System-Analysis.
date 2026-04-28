@@ -1,0 +1,14 @@
+flowchart TD
+    A[Пользователь открывает рекомендации] --> B[Frontend отправляет запрос в Recommendation Gateway]
+    B --> C[Gateway собирает контекст пользователя и поездки]
+    C --> D[Запрос в ML-сервис с timeout 3 секунды]
+    D --> E{ML ответил быстро?}
+    E -- Да --> F{Confidence выше порога?}
+    E -- Нет --> G[Fallback engine]
+    F -- Да --> H[ML mode]
+    F -- Нет --> I[Fallback или Hybrid mode]
+    G --> J[Rule-based подборка на внутренних данных]
+    I --> J
+    H --> K[Единый API-ответ]
+    J --> K
+    K --> L[Frontend показывает рекомендации без технической ошибки]
