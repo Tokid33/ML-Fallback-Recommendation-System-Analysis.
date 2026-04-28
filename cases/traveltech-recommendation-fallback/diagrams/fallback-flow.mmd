@@ -1,0 +1,18 @@
+flowchart TD
+    A[User opens recommendations] --> B[Frontend calls Recommendation Gateway]
+    B --> C[Gateway collects user and trip context]
+    C --> D[Call ML service with 3s timeout]
+    D --> E{ML response valid?}
+    E -->|Yes, confidence >= threshold| F[Return ML recommendations]
+    E -->|No, unavailable| G[Use fallback engine]
+    E -->|No, timeout > 3s| G
+    E -->|No, low confidence| H{Partial good results?}
+    H -->|Yes| I[Use hybrid mode]
+    H -->|No| G
+    G --> J[Rank candidates from internal data]
+    I --> K[Merge strong ML + fallback candidates]
+    J --> L[Unified API response]
+    K --> L
+    F --> L
+    L --> M[Frontend renders recommendations]
+    L --> N[Log mode, reason, timing, metrics]

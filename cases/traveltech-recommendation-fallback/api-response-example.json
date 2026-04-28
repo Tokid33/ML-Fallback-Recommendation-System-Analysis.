@@ -1,0 +1,26 @@
+{
+  "mode": "fallback",
+  "reason": "ml_timeout",
+  "generated_at": "2026-04-28T12:00:00Z",
+  "recommendations": [
+    {
+      "id": "activity_123",
+      "type": "activity",
+      "title": "City center walking tour",
+      "score": 0.82,
+      "explanation": "Popular among travelers in this city and fits your schedule"
+    },
+    {
+      "id": "hotel_847",
+      "type": "hotel",
+      "title": "4-star hotel near the historical center",
+      "score": 0.78,
+      "explanation": "Matches your usual hotel category and selected budget range"
+    }
+  ],
+  "debug": {
+    "ml_response_time_ms": 3000,
+    "fallback_response_time_ms": 420,
+    "confidence_threshold": 0.6
+  }
+}
